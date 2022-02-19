@@ -1,0 +1,97 @@
+trigger:
+  branches:
+    include:
+    - main
+  paths:
+    include:
+    - modules/* 
+
+pool:
+  vmImage: ubuntu-latest
+
+variables:
+  serviceConnectionName: ''
+  ContainerRegistry: ''
+
+stages:
+  - stage: Build
+    jobs:
+    - job: Artifact
+      steps:
+      - checkout: self
+      - task: PowerShell@2
+        displayName: 'Get added or changed files'
+        inputs:
+          targetType: filePath
+          filePath: scripts/ACR/Get-ACRModulesUpdates.ps1
+          pwsh: true
+        name: diff
+     
+      - task: PowerShell@2
+        displayName: 'Validate bicep modules'
+        condition: and(succeeded(), eq(variables.bicepFiles, 'true'))
+        inputs:
+          targetType: filePath
+          filePath: scripts/ACR/Validate-ACRModules.ps1 
+          pwsh: true
+  
+      - task: CopyFiles@2
+        displayName: 'Copy scripts'
+        condition: and(succeeded(), eq(variables.bicepFiles, 'true'))
+        inputs: 
+          contents: 'scripts/ACR/Publish-ACRModules.ps1'
+          targetFolder: '$(Build.ArtifactStagingDirectory)'
+
+      - task: PublishPipelineArtifact@1
+        displayName: 'Publish bicep as artifact'
+        condition: and(succeeded(), eq(variables.bicepFiles, 'true'))
+        inputs: 
+          artifact: 'bicep'
+          targetPath: '$(Build.ArtifactStagingDirectory)/modules'
+          publishLocation: pipeline
+
+      - task: PublishPipelineArtifact@1
+        displayName: 'Publish scripts as artifact'
+        condition: and(succeeded(), eq(variables.bicepFiles, 'true'))
+        inputs: 
+          artifact: 'scripts'
+          targetPath: '$(Build.ArtifactStagingDirectory)/scripts/ACR'
+          publishLocation: pipeline
+
+
+  - stage: Deploy
+    dependsOn: Build
+    jobs:
+    - deployment: Deploy
+      variables:
+        bicepFilesBuild: $[ stageDependencies.Build.Artifact.outputs['diff.bicepFiles'] ]
+      environment: 'bicep-prod'
+      displayName: 'Deploy bicep files to container registry'
+      condition: eq(variables.bicepFilesBuild, 'true')
+      strategy:
+        runOnce:
+          deploy:
+            steps:
+              - task: DownloadPipelineArtifact@2
+                displayName: 'Download bicep artifact'
+                inputs:
+                  artifactName: 'bicep'
+                  allowPartiallySucceededBuilds: false
+            
+              - task: DownloadPipelineArtifact@2
+                displayName: 'Download scripts artifact'
+                inputs:
+                  artifactName: 'scripts'
+                  allowPartiallySucceededBuilds: false
+
+              - task: AzurePowerShell@5
+                displayName: 'Deploy bicep files to container registry'
+                inputs:
+                  azureSubscription: $(serviceConnectionName)
+                  scriptType: filePath
+                  scriptPath: $(Pipeline.Workspace)/scripts/Publish-ACRModules.ps1
+                  ScriptArguments: 
+                    -ContainerRegistry $(ContainerRegistry)
+                  workingDirectory: $(Pipeline.Workspace)
+                  azurePowerShellVersion: latestVersion
+                  pwsh: true
