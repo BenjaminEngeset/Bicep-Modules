@@ -3,7 +3,7 @@
 
 Pipeline for uploading Bicep modules to container registry. This offers possibilities for sharing and referencing modules from Bicep files. 
 
-How does it work?
+How does this actually work?
 
 First thing it will do is checkout self, so checking out repository so it is available for the build agent. It will then leverage PowerShell script named Get-ACRModulesUpdates.ps1 to check if the new commit in the module folder in the repository has some changes to it. Like added or changed file. 
 
@@ -36,4 +36,5 @@ This was a very general explanation, please look more into the pipeline and scri
 
 ## Simple holistic solution design
 
-![App Screenshot](https://gyazo.com/3a62db7870e3aeee552a71b460b68847)
+![Image](https://gyazo.com/3a62db7870e3aeee552a71b460b68847.png)
+
