@@ -65,7 +65,7 @@ param zoneRedundancy string = 'Enabled'
   ]
 })
 param ipRules object = {}
- 
+
 @description('Allow trusted Azure services to access restricted registry, by default this is none')
 @allowed([
   'AzureServices'
@@ -99,13 +99,16 @@ param policies object = {
   }
 }
 
-@description('Enable delete lock, by default it is enabled to meet compliance')
+@description('Enable delete lock, by default it is enabled')
 param enableDeleteLock bool = true
 
-@description('Enable diagnostic logs, by default it is enabled to meet compliance')
+@description('Enable diagnostic logs, by default it is enabled')
 param enableDiagnostics bool = true
 
-@description('Log analytics workspace resource id. Only required if enableDiagnostics is set to true')
+@description('Storage account resource id. Only required if enableDiagnostics is set to true.')
+param diagnosticStorageAccountId string = ''
+
+@description('Log analytics workspace resource id. Only required if enableDiagnostics is set to true.')
 param logAnalyticsWorkspaceId string = ''
 
 var lockName = '${acr.name}-lck'
@@ -143,6 +146,7 @@ resource diagnostics 'microsoft.insights/diagnosticSettings@2021-05-01-preview' 
   name: diagnosticsName
   properties: {
     workspaceId: empty(logAnalyticsWorkspaceId) ? null : logAnalyticsWorkspaceId
+    storageAccountId: empty(diagnosticStorageAccountId) ? null : diagnosticStorageAccountId
     logs: [
       {
         category: 'ContainerRegistryRepositoryEvents'
