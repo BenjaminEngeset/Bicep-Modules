@@ -20,7 +20,7 @@ stages:
       steps:
       - checkout: self
       - task: PowerShell@2
-        displayName: 'Get changed or added files'
+        displayName: 'Get added or changed files'
         inputs:
           targetType: filePath
           filePath: scripts/ACR/Get-ACRModulesUpdates.ps1

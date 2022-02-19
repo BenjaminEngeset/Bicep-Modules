@@ -14,7 +14,7 @@ if ($files.count -ge 1) {
   Write-Host ("##vso[task.setvariable variable=bicepFiles;isOutput=true]true") 
   # set the variable in this stage for the rest of the tasks
   Write-Host ("##vso[task.setvariable variable=bicepFiles]true")
-  # update the build number in DevOps
+  # update the build number in ado
   write-host ("##vso[build.updatebuildnumber]${version}")
 }
 
@@ -23,6 +23,6 @@ else {
   Write-Host ("##vso[task.setvariable variable=bicepFiles;isOutput=true]false")
   # set the variable in this stage for the rest of the tasks
   Write-Host ("##vso[task.setvariable variable=bicepFiles]false")
-  # update the build number in DevOps
+  # update the build number in ado
   write-host ("##vso[build.updatebuildnumber]${version}")
 } 
