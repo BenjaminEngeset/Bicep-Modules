@@ -36,5 +36,4 @@ This was a very general explanation, please look more into the pipeline and scri
 
 ## Simple holistic solution design
 
-![App Screenshot](https://prnt.sc/3xN4_Cbv3vII)
-
+![App Screenshot](https://gyazo.com/3a62db7870e3aeee552a71b460b68847)
