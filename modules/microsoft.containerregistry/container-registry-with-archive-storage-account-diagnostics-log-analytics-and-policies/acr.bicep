@@ -174,8 +174,8 @@ resource lock 'Microsoft.Authorization/locks@2017-04-01' = if (enableDeleteLock)
   }
 }
 
-// As you might can see, there is no Defender for Containers declaration, this is because it should automatically be deployed by Microsoft Defender for Cloud
-// It will do auto-provision of the required components, please remember to turn this on
+// As you might can see, there is no Microsoft Defender for Containers resource declaration, this is because it will automatically be deployed by Microsoft Defender for Cloud
+// It will do auto-provision of the required components
 
 @description('Outputs from the module deployment that can be used for several handy scenarios')
 output name string = acr.name
