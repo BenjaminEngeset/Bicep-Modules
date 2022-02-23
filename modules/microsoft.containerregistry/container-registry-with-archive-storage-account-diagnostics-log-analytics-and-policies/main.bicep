@@ -3,7 +3,7 @@ SUMMARY: Module to deploy an Azure Container Registry with archiving diagnostics
 DESCRIPTION: The following components will be options in this deployment
               Diagnostics
               Resource Lock
-AUTHOR/S: benjamine
+AUTHOR/S: bengeset96
 VERSION: 1.0.0
 */
 
