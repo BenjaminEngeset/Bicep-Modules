@@ -73,7 +73,7 @@ param ipRules object = {}
 ])
 param networkRuleBypassOptions string = 'None'
 
-@description('Azure Container Registry policies, by default qurantine and retention policy is enabled')
+@description('Azure Container Registry policies, by default qurantine and retention policy are enabled')
 @metadata({
   exportPolicy: {
     status: 'The value that indicates whether the policy is enabled or not. Valid values are Enabled/Disabled'

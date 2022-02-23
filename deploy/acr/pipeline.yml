@@ -23,7 +23,7 @@ stages:
         displayName: 'Get added or changed files'
         inputs:
           targetType: filePath
-          filePath: scripts/ACR/Get-ACRModulesUpdates.ps1
+          filePath: scripts/acr/Get-ACRModulesUpdates.ps1
           pwsh: true
         name: diff
      
@@ -32,14 +32,14 @@ stages:
         condition: and(succeeded(), eq(variables.bicepFiles, 'true'))
         inputs:
           targetType: filePath
-          filePath: scripts/ACR/Validate-ACRModules.ps1 
+          filePath: scripts/acr/Validate-ACRModules.ps1 
           pwsh: true
   
       - task: CopyFiles@2
         displayName: 'Copy scripts'
         condition: and(succeeded(), eq(variables.bicepFiles, 'true'))
         inputs: 
-          contents: 'scripts/ACR/Publish-ACRModules.ps1'
+          contents: 'scripts/acr/Publish-ACRModules.ps1'
           targetFolder: '$(Build.ArtifactStagingDirectory)'
 
       - task: PublishPipelineArtifact@1
@@ -55,7 +55,7 @@ stages:
         condition: and(succeeded(), eq(variables.bicepFiles, 'true'))
         inputs: 
           artifact: 'scripts'
-          targetPath: '$(Build.ArtifactStagingDirectory)/scripts/ACR'
+          targetPath: '$(Build.ArtifactStagingDirectory)/scripts/acr'
           publishLocation: pipeline
 
 
