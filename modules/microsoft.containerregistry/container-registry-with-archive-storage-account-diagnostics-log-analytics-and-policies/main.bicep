@@ -1,3 +1,12 @@
+/*
+SUMMARY: Module to deploy an Azure Container Registry with archiving diagnostics logs to a storage account, sending them to a Log Analytics workspace and with policies 
+DESCRIPTION: The following components will be options in this deployment
+              Diagnostics
+              Resource Lock
+AUTHOR/S: benjamine
+VERSION: 1.0.0
+*/
+
 @minLength(5)
 @maxLength(50)
 @description('Azure Container Registry resource name')
