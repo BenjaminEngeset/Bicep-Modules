@@ -117,8 +117,8 @@ param parEnableDiagnostics bool = true
 @description('Log analytics workspace resource id. Only required if parEnableDiagnostics is set to true. Default: Empty String')
 param parLogAnalyticsWorkspaceId string = ''
 
-var varLockName = '${resAzureContainerRegistry.name}-lck'
 var varDiagnosticsName = '${resAzureContainerRegistry.name}-dgs'
+var varLockName = '${resAzureContainerRegistry.name}-lck'
 
 resource resAzureContainerRegistry 'Microsoft.ContainerRegistry/registries@2021-09-01' = {
   name: parAcrName
