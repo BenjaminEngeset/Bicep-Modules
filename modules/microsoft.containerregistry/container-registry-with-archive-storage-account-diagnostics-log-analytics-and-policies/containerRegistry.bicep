@@ -81,7 +81,7 @@ param parZoneRedundancy string = 'Disabled'
     }
   ]
 })
-param parIpRules object = {}
+param parNetworkRuleSet object = {}
 
 @description('Allow trusted Azure services to access restricted registry. Default: None')
 @allowed([
@@ -141,10 +141,10 @@ resource resAzureContainerRegistry 'Microsoft.ContainerRegistry/registries@2021-
     publicNetworkAccess: parPublicNetworkAccess
     zoneRedundancy: parZoneRedundancy
     networkRuleBypassOptions: parNetworkRuleBypassOptions
-    networkRuleSet: !empty(parIpRules) ? {
-      defaultAction: parIpRules.defaultAction
-      ipRules: parIpRules.ipRules
-      virtualNetworkRules: parIpRules.virtualnetworkRules
+    networkRuleSet: !empty(parNetworkRuleSet) ? {
+      defaultAction: parNetworkRuleSet.defaultAction
+      ipRules: parNetworkRuleSet.ipRules
+      virtualNetworkRules: parNetworkRuleSet.virtualNetworkRules
     } : {}
     policies: parPolicies
   }
