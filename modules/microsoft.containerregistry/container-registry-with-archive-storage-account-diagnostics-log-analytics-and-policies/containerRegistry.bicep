@@ -12,7 +12,7 @@ VERSION: 1.1.0
 @description('Globally unique name for Azure Container Registry')
 param parAcrName string = 'acr${uniqueString(resourceGroup().id)}'
 
-@description('Azure Container Registry resource location. Default: Returns the resource group location')
+@description('Specifies the Azure location where the Azure Container Registry should be created. Default: Returns the resource group location')
 param parLocation string = resourceGroup().location
 
 @description('Tag to be applied to resource when deployed. Default: Returns the current (UTC) datetime value in the specified format')
