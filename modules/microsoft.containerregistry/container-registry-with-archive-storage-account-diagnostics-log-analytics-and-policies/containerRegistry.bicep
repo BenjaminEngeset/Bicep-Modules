@@ -187,6 +187,6 @@ resource resLock 'Microsoft.Authorization/locks@2017-04-01' = if (parEnableDelet
 // It will do auto-provision of the required components
 
 @description('Outputs from the module deployment')
-output name string = resAzureContainerRegistry.name
-output id string = resAzureContainerRegistry.id
-output acrLoginServer string = resAzureContainerRegistry.properties.loginServer
+output outAzureContainerRegistryName string = resAzureContainerRegistry.name
+output outAzureContainerRegistryId string = resAzureContainerRegistry.id
+output outAzureContainerRegistryLoginServer string = resAzureContainerRegistry.properties.loginServer
