@@ -37,7 +37,7 @@ var varTags = union(parResourceTags, varResourceGroupTags, varDefaultResourceTag
   'Standard'
   'Premium'
 ])
-param parAcrSku string = 'Basic'
+param parAcrSku string = 'Premium'
 
 @description('Enable system-assigned managed identity. Default: true')
 param parEnableSystemIdentity bool = true
@@ -108,11 +108,11 @@ param parNetworkRuleBypassOptions string = 'None'
 })
 param parPolicies object = {}
 
-@description('Delete lock. Default: true')
-param parEnableDeleteLock bool = true
-
 @description('Diagnostic logs. Default: true')
 param parEnableDiagnostics bool = true
+
+@description('Delete lock. Default: true')
+param parEnableDeleteLock bool = true
 
 @description('Log analytics workspace resource id. Only required if parEnableDiagnostics is set to true. Default: Empty String')
 param parLogAnalyticsWorkspaceId string = ''
