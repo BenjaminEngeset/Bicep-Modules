@@ -86,7 +86,7 @@ New-AzResourceGroup -Name 'MyContainerReg-RG' `
 New-AzResourceGroupDeployment `
   -ResourceGroupName 'MyContainerReg-RG' `
   -TemplateFile modules/microsoft.containerregistry/container-registry-with-archive-storage-account-diagnostics-log-analytics-and-policy/containerRegistry.bicep `
-  -TemplateParameterFile modules/microsoft.containerregistry/container-registry-with-archive-storage-account-diagnostics-log-analytics-and-policy/containerRegistry.parameters.example.json `
+  -TemplateParameterFile modules/microsoft.containerregistry/container-registry-with-archive-storage-account-diagnostics-log-analytics-and-policy/containerRegistry.parameters.example.json
 ```
 
 ## Example Output in Azure global regions
