@@ -66,7 +66,7 @@ az group create --location westeurope \
    --name MyContainerReg-RG
 
 az deployment group create \
-   --resource-group MyContainerReg-RG  \
+   --resource-group MyContainerReg-RG \
    --template-file modules/microsoft.containerregistry/container-registry-with-diagnostics-log-analytics-and-policy/containerRegistry.bicep \
    --parameters @modules/microsoft.containerregistry/container-registry-with-diagnostics-log-analytics-and-policy/containerRegistry.parameters.example.json  
 ```
@@ -83,9 +83,9 @@ New-AzResourceGroup -Name 'MyContainerReg-RG' `
   -Location 'westeurope'
   
 New-AzResourceGroupDeployment `
+  -ResourceGroupName 'MyContainerReg-RG' `
   -TemplateFile modules/microsoft.containerregistry/container-registry-with-diagnostics-log-analytics-and-policy/containerRegistry.bicep `
-  -TemplateParameterFile modules/microsoft.containerregistry/container-registry-with-diagnostics-log-analytics-and-policy/containerRegistry.parameters.example.json `
-  -ResourceGroupName 'MyContainerReg-RG'
+  -TemplateParameterFile modules/microsoft.containerregistry/container-registry-with-diagnostics-log-analytics-and-policy/containerRegistry.parameters.example.json
 ```
 
 ## Example Output in Azure global regions
