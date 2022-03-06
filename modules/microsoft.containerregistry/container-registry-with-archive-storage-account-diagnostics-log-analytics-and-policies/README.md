@@ -68,8 +68,8 @@ az group create --location westeurope \
 
 az deployment group create \
    --resource-group MyContainerReg-RG  \
-   --template-file modules/microsoft.containerregistry/container-registry-with-diagnostics-log-analytics-and-policy/containerRegistry.bicep \
-   --parameters @modules/microsoft.containerregistry/container-registry-with-diagnostics-log-analytics-and-policy/containerRegistry.parameters.example.json  
+   --template-file modules/microsoft.containerregistry/container-registry-with-archive-storage-account-diagnostics-log-analytics-and-policy/containerRegistry.bicep \
+   --parameters @modules/microsoft.containerregistry/container-registry-with-archive-storage-account-diagnostics-log-analytics-and-policy/containerRegistry.parameters.example.json  
 ```
 
 ### PowerShell
@@ -84,8 +84,8 @@ New-AzResourceGroup -Name 'MyContainerReg-RG' `
   -Location 'westeurope'
   
 New-AzResourceGroupDeployment `
-  -TemplateFile modules/microsoft.containerregistry/container-registry-with-diagnostics-log-analytics-and-policy/containerRegistry.bicep `
-  -TemplateParameterFile modules/microsoft.containerregistry/container-registry-with-diagnostics-log-analytics-and-policy/containerRegistry.parameters.example.json `
+  -TemplateFile modules/microsoft.containerregistry/container-registry-with-archive-storage-account-diagnostics-log-analytics-and-policy/containerRegistry.bicep `
+  -TemplateParameterFile modules/microsoft.containerregistry/container-registry-with-archive-storage-account-diagnostics-log-analytics-and-policy/containerRegistry.parameters.example.json `
   -ResourceGroupName 'MyContainerReg-RG'
 ```
 
