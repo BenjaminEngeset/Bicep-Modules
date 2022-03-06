@@ -31,7 +31,7 @@ var varResourceGroupTags = resourceGroup().tags
 @description('Tags to be applied to resource when deployed. Default: parResourceTags, varResourceGroupTags, varDefaultResourceTags')
 var varTags = union(parResourceTags, varResourceGroupTags, varDefaultResourceTags)
 
-@description('Azure Container Registry service tier. Default: Basic')
+@description('Azure Container Registry service tier. Default: Premium')
 @allowed([
   'Basic'
   'Standard'
@@ -114,11 +114,11 @@ param parEnableDiagnostics bool = true
 @description('Delete lock. Default: true')
 param parEnableDeleteLock bool = true
 
-@description('Storage account resource id. Only required if parEnableDiagnostics is set to true. Default: Empty String')
-param parDiagnosticStorageAccountId string = ''
-
 @description('Log analytics workspace resource id. Only required if parEnableDiagnostics is set to true. Default: Empty String')
 param parLogAnalyticsWorkspaceId string = ''
+
+@description('Storage account resource id. Only required if parEnableDiagnostics is set to true. Default: Empty String')
+param parDiagnosticStorageAccountId string = ''
 
 var varDiagnosticsName = '${resAzureContainerRegistry.name}-dgs'
 var varLockName = '${resAzureContainerRegistry.name}-lck'

@@ -31,7 +31,7 @@ var varResourceGroupTags = resourceGroup().tags
 @description('Tags to be applied to resource when deployed. Default: parResourceTags, varResourceGroupTags, varDefaultResourceTags')
 var varTags = union(parResourceTags, varResourceGroupTags, varDefaultResourceTags)
 
-@description('Azure Container Registry service tier. Default: Basic')
+@description('Azure Container Registry service tier. Default: Premium')
 @allowed([
   'Basic'
   'Standard'
