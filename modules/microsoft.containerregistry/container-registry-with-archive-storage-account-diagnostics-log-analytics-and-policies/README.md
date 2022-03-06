@@ -45,7 +45,7 @@ The module will generate the following outputs:
 | outAzureContainerRegistryLoginServer | string | acrxdn2qxqgwjpjg.azurecr.io                                                                                                                            |
 
 ## Deployment
-> **Note:** `bicepconfig.json` file is included in the module directory. This file allows us to override Bicep Linters.
+> **Note:** `bicepconfig.json` file is included in the module directory. This file allows us to override the Bicep linter.
 
 In this example, the Azure Container Registry will be deployed to the resource group specified.
 
