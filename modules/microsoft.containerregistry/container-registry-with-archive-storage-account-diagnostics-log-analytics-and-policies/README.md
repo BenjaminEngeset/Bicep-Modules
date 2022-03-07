@@ -91,8 +91,8 @@ New-AzResourceGroupDeployment `
 
 ## Example Output in Azure global regions
 
-![Example Deployment Output](media/AzureContainerRegistryExampleDeploymentOutput.png "Example Deployment Output in Azure global regions")
+![Example Deployment Output](media/containerRegistryExampleDeploymentOutput.png "Example Deployment Output in Azure global regions")
 
 ## Bicep Visualizer
 
-![Bicep Visualizer](media/AzureContainerRegistryBicepVisualizer.png "Bicep Visualizer")
+![Bicep Visualizer](media/containerRegistryBicepVisualizer.png "Bicep Visualizer")
