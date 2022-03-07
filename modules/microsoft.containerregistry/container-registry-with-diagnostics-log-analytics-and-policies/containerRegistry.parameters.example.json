@@ -24,7 +24,7 @@
             "value": "Enabled"
         },
         "parZoneRedundancy": {
-            "value": "Disabled"
+            "value": "Enabled"
         },
         "parNetworkRuleSet": {
             "value": {

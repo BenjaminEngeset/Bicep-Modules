@@ -63,7 +63,7 @@ param parPublicNetworkAccess string = 'Enabled'
   'Disabled'
   'Enabled'
 ])
-param parZoneRedundancy string = 'Disabled'
+param parZoneRedundancy string = 'Enabled'
 
 @description('The network rule set for a container registry. Default: Empty Object')
 @metadata({
