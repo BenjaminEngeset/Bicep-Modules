@@ -76,7 +76,7 @@ az deployment group create \
 ```powershell
 # For Azure global regions
 # Set container registry subscription ID as the current subscription 
-ContainerRegistrySubscriptionId = "[your subscription ID]"
+$ContainerRegistrySubscriptionId = "[your subscription ID]"
 Select-AzSubscription -SubscriptionId $ContainerRegistrySubscriptionId
 
 New-AzResourceGroup -Name 'MyContainerReg-RG' `
