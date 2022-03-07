@@ -65,14 +65,14 @@
         "parEnableDiagnostics": {
             "value": true
         },
-        "parEnableDeleteLock": {
-            "value": true
-        },
         "parLogAnalyticsWorkspaceId": {
             "value": ""
         },
         "parDiagnosticStorageAccountId": {
             "value": ""
+        },
+        "parEnableDeleteLock": {
+            "value": true
         }
     }
 }

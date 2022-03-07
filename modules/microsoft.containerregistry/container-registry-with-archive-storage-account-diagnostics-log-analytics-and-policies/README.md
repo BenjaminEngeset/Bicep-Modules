@@ -30,10 +30,10 @@ The module requires the following inputs:
  | parNetworkRuleByPassOptions   | string | None                                                                                                                                  | Allow trusted Azure services to access restricted registry | AzureServices or None | None
  | parPolicies                   | object | Empty Object {}, see example parameters file [`containerRegistry.parameters.example.json`](containerRegistry.parameters.example.json) | Azure Container Registry policies. If parPolicies is not desired as an empty object, it should be used as the input parameter in the parameter file, i.e "parPolicies": {"value": {} }''' | None | See Default
  | parEnableDiagnostics          | bool   | true                                                                                                                                  | Diagnostic logs | None | true
- | parEnableDeleteLock           | bool   | true                                                                                                                                  | Delete lock | None | true
  | parLogAnalyticsWorkspaceId    | string | Empty String '', see example parameters file [`containerRegistry.parameters.example.json`](containerRegistry.parameters.example.json) | Log analytics workspace resource id. Only required if parEnableDiagnostics is set to true. If parLogAnalyticsWorkspaceId is not desired as an empty string, it should be used as the input parameter in the parameter file, i.e "parLogAnalyticsWorkspaceId": {"value": {} }''' | None | See Default
  | parDiagnosticStorageAccountId | string | Empty String '', see example parameters file [`containerRegistry.parameters.example.json`](containerRegistry.parameters.example.json) | Storage account resource id. Only required if parEnableDiagnostics is set to true. If parDiagnosticStorageAccountId is not desired as an empty string, it should be used as the input parameter in the parameter file, i.e "parDiagnosticStorageAccountId": {"value": {} }''' | None | See Default
-
+ | parEnableDeleteLock           | bool   | true                                                                                                                                  | Delete lock | None | true
+ 
 ## Outputs
 
 The module will generate the following outputs:
