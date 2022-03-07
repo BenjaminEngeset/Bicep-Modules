@@ -68,10 +68,10 @@
         "parEnableDeleteLock": {
             "value": true
         },
-        "parDiagnosticStorageAccountId": {
+        "parLogAnalyticsWorkspaceId": {
             "value": ""
         },
-        "parLogAnalyticsWorkspaceId": {
+        "parDiagnosticStorageAccountId": {
             "value": ""
         }
     }
