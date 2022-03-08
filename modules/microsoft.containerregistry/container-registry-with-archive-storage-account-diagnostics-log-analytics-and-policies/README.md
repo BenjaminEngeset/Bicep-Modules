@@ -39,7 +39,7 @@ The module requires the following inputs:
 The module will generate the following outputs:
 
 | Output                               | Type   | Example                                                                                                                                                |
-| -------------------------            | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| ------------------------------------ | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | outAzureContainerRegistryName        | string | acrxdn2qxqgwjpjg                                                                                                                                       |
 | outAzureContainerRegistryId          | string | /subscriptions/427f6415-fa22-44d4-b682-93c4d0274884/resourceGroups/MyContainerReg-RG/providers/Microsoft.ContainerRegistry/registries/acrxdn2qxqgwjpjg |
 | outAzureContainerRegistryLoginServer | string | acrxdn2qxqgwjpjg.azurecr.io                                                                                                                            |
